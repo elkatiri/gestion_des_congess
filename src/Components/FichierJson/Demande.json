@@ -1,0 +1,18 @@
+[
+    {
+      "id": 101,
+      "employeId": 1,
+      "managerId": 1,
+      "dateDebut": "2025-03-10",
+      "dateFin": "2025-03-15",
+      "statut": "En attente"
+   },
+   {
+    "id": 102,
+    "employeId": 2,
+    "managerId": 2,
+    "dateDebut": "2025-03-10",
+    "dateFin": "2025-03-15",
+    "statut": "En attente"
+    }
+]

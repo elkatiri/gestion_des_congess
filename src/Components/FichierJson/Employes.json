@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "nom": "Zineb El Hachimi",
+    "email": "zinebelhachimi@gmail.com",
+    "managerId": 1,
+    "dateDebut": "2025-06-01",
+    "dateDeFin": "2025-06-15",
+    "statut": "En Attente"
+  },
+  {
+    "id": 2,
+    "nom": "Yassine Bouzid",
+    "email": "yassinebouzid@gmail.com",
+    "managerId": 2,
+    "dateDebut": "2025-07-05",
+    "dateDeFin": "2025-07-20",
+    "statut": "En Attente"
+  },
+  {
+    "id": 3,
+    "nom": "Sofia Khatib",
+    "email": "sofiakhatib@gmail.com",
+    "managerId": 1,
+    "dateDebut": "2025-08-10",
+    "dateDeFin": "2025-08-25",
+    "statut": "En Attente"
+  },
+  {
+    "id": 4,
+    "nom": "Mouad Belhaj",
+    "email": "mouadbelhaj@gmail.com",
+    "managerId": 2,
+    "dateDebut": "2025-09-15",
+    "dateDeFin": "2025-09-30",
+    "statut": "En Attente"
+  }
+]

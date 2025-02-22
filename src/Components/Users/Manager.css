@@ -1,0 +1,75 @@
+.manager-container{
+    margin: 2rem;
+}
+.manager-container h2 {
+    text-align: left;
+    font-size: 2rem;
+    color: #503f01;
+    margin-bottom: 1rem;
+}
+.header-manager{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+select {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    margin: 0.5rem 1rem 1rem 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: #fff;
+}
+
+th,
+td {
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #51431e;
+    color: #fff;
+}
+
+tr:hover {
+    background-color: rgba(221, 203, 137, 0.1);
+}
+
+button {
+    background-color: #ddcb89;
+    color: black;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 0.25rem;
+}
+
+button:hover {
+    background-color: #b6a465;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

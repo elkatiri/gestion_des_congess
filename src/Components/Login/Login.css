@@ -1,0 +1,79 @@
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f4f6; 
+}
+
+.login-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-form h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #374151; 
+}
+
+.login-form label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #374151; 
+}
+
+.login-form input[type="text"],
+.login-form input[type="email"] {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    margin-bottom: 1rem;
+    outline: none;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="email"]:focus {
+    border-color: #ddcb89; 
+}
+
+.login-form .radio-group {
+    margin-bottom: 1rem;
+}
+
+.login-form .radio-group label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    color: #374151;
+}
+
+.login-form .radio-group input[type="radio"] {
+    margin-right: 0.5rem;
+    accent-color: #ddcb89; 
+}
+
+.login-form button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: #ddcb89; 
+    color: #171717;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #d4c89b; 
+}
