@@ -40,13 +40,12 @@ const modifierStatut = (id, statut) => {
   }
 };
   const filterCongesByMonth = (month) => {
-    if (!month) return conges; // Return all leave requests if no month is selected
+    if (month === "") return conges; // Return all leave requests if no month is selected
     return conges.filter((conge) => {
       const congeDate = new Date(conge.dateDebut);
-      return congeDate.getMonth() === month; // Filter by the selected month
+      return congeDate.getMonth() === month - 1; // Adjust for zero-based index
     });
   };
-
   const filterCongesByStatus = (conges) => {
     if (!selectedStatus) return conges;
     return conges.filter((conge) => conge.statut === selectedStatus);
@@ -99,7 +98,11 @@ const modifierStatut = (id, statut) => {
       <div className="choisir">
         <label>Sélectionner le mois :</label>
         <select
-          onChange={(e) => setSelectedMonth(Number(e.target.value))}
+          onChange={(e) =>
+            setSelectedMonth(
+              e.target.value === "" ? "" : Number(e.target.value)
+            )
+          }
           value={selectedMonth}
           className="admin-select"
         >

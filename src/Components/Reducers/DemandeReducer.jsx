@@ -25,6 +25,4 @@ const DemandeReducer = (state = initState, action) => {
       return state;
   }
 };
-
-
 export default DemandeReducer;

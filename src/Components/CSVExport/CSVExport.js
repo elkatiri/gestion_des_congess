@@ -10,7 +10,6 @@ const exportToCSV = (data, filename) => {
     });
     csvRows.push(values.join(","));
   }
-
   const csvString = csvRows.join("\n");
   const blob = new Blob([csvString], { type: "text/csv" });
   const url = window.URL.createObjectURL(blob);
