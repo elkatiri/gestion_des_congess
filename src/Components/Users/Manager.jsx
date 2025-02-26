@@ -24,16 +24,26 @@ export default function Manager() {
   const [selectedMonth, setSelectedMonth] = useState("");
   const [adminActif, setAdminActif] = useState(1);
   const [selectedStatus, setSelectedStatus] = useState("");
+  const [newDate, setNewDate] = useState(""); // State for new date
+  const [currentRequestId, setCurrentRequestId] = useState(null); // State for tracking the request being modified
 
-  const modifierStatut = (id, statut) => {
+const modifierStatut = (id, statut) => {
+  if (statut === "Reporté" && newDate) {
+    dispatch({
+      type: "MODIFIER_STATUT_CONGE",
+      payload: { id, statut, dateRapport: newDate }, // Correct field
+    });
+    setNewDate("");
+    setCurrentRequestId(null);
+  } else {
     dispatch({ type: "MODIFIER_STATUT_CONGE", payload: { id, statut } });
-  };
-
+  }
+};
   const filterCongesByMonth = (month) => {
-    if (month === "") return conges;
+    if (!month) return conges; // Return all leave requests if no month is selected
     return conges.filter((conge) => {
       const congeDate = new Date(conge.dateDebut);
-      return congeDate.getMonth() === month;
+      return congeDate.getMonth() === month; // Filter by the selected month
     });
   };
 
@@ -147,9 +157,30 @@ export default function Manager() {
                     <button onClick={() => modifierStatut(conge.id, "Refusé")}>
                       Refuser
                     </button>
-                    <button onClick={() => modifierStatut(conge.id, "Reporté")}>
+                    <button
+                      onClick={() => {
+                        setCurrentRequestId(conge.id);
+                        modifierStatut(conge.id, "Reporté");
+                      }}
+                    >
                       Reporter
                     </button>
+                    {currentRequestId === conge.id && (
+                      <div>
+                        <input
+                          type="date"
+                          value={newDate}
+                          onChange={(e) => setNewDate(e.target.value)}
+                        />
+                        <button
+                          onClick={() => {
+                            modifierStatut(conge.id, "Reporté");
+                          }}
+                        >
+                          Confirmer Report
+                        </button>
+                      </div>
+                    )}
                   </>
                 ) : (
                   <span>Vous ne pouvez pas modifier cette demande</span>

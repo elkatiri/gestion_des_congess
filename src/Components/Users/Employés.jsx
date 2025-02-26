@@ -37,6 +37,7 @@ const Employes = ({ employeId }) => {
       dateDebut,
       dateFin,
       statut: "En attente",
+      dateRapport: null, // Initialize the deferred date
     };
 
     dispatch({
@@ -47,6 +48,11 @@ const Employes = ({ employeId }) => {
     setDateDebut("");
     setDateFin("");
   };
+
+  // Check if there are any requests that are "Reporté"
+  const hasReportedRequests = demandesEmploye.some(
+    (demande) => demande.statut === "Reporté"
+  );
 
   return (
     <>
@@ -98,23 +104,36 @@ const Employes = ({ employeId }) => {
                 <th>Date Début</th>
                 <th>Date Fin</th>
                 <th>Statut</th>
+                {hasReportedRequests && <th>Date Reportée</th>}{" "}
+                {/* Conditionally render this header */}
               </tr>
             </thead>
             <tbody>
               {demandesEmploye.length > 0 ? (
                 demandesEmploye.map((demande) => (
                   <tr key={demande.id}>
-                    <td>Admin {demande.managerId}</td>
+                    <td>responsable {demande.managerId}</td>
                     <td>{demande.dateDebut}</td>
                     <td>{demande.dateFin}</td>
                     <td style={{ color: getColor(demande.statut) }}>
                       {demande.statut}
                     </td>
+                    {hasReportedRequests && (
+                      <td>
+                        {demande.statut === "Reporté" && demande.dateRapport
+                          ? demande.dateRapport // Show deferred date if status is "Reporté"
+                          : "N/A" // Show "N/A" for other statuses
+                        }
+                      </td>
+                    )}
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan="4">Aucune demande de congé</td>
+                  <td colSpan={hasReportedRequests ? 5 : 4}>
+                    Aucune demande de congé
+                  </td>{" "}
+                  {/* Adjusted colspan */}
                 </tr>
               )}
             </tbody>
