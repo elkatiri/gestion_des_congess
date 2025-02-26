@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import "./Manager.css";
 import Logout from "../Logout/Logout";
+import exportToCSV from "../CSVExport/CSVExport";
 
 const getColor = (statut) => {
   switch (statut) {
@@ -22,17 +23,23 @@ export default function Manager() {
 
   const [selectedMonth, setSelectedMonth] = useState("");
   const [adminActif, setAdminActif] = useState(1);
+  const [selectedStatus, setSelectedStatus] = useState("");
 
   const modifierStatut = (id, statut) => {
     dispatch({ type: "MODIFIER_STATUT_CONGE", payload: { id, statut } });
   };
 
   const filterCongesByMonth = (month) => {
-    if (!month) return conges;
+    if (month === "") return conges;
     return conges.filter((conge) => {
       const congeDate = new Date(conge.dateDebut);
       return congeDate.getMonth() === month;
     });
+  };
+
+  const filterCongesByStatus = (conges) => {
+    if (!selectedStatus) return conges;
+    return conges.filter((conge) => conge.statut === selectedStatus);
   };
 
   const months = [
@@ -49,6 +56,14 @@ export default function Manager() {
     { value: 10, label: "Novembre" },
     { value: 11, label: "Décembre" },
   ];
+
+  const filteredConges = filterCongesByStatus(
+    filterCongesByMonth(selectedMonth)
+  );
+
+  const handleExport = () => {
+    exportToCSV(filteredConges, "demandes_conges.csv");
+  };
 
   return (
     <div className="manager-container">
@@ -87,6 +102,23 @@ export default function Manager() {
         </select>
       </div>
 
+      <div className="choisir">
+        <label>Filtrer par statut :</label>
+        <select
+          onChange={(e) => setSelectedStatus(e.target.value)}
+          value={selectedStatus}
+          className="admin-select"
+        >
+          <option value="">Tous les statuts</option>
+          <option value="En attente">En attente</option>
+          <option value="Approuvé">Approuvé</option>
+          <option value="Refusé">Refusé</option>
+          <option value="Reporté">Reporté</option>
+        </select>
+      </div>
+
+      <button onClick={handleExport}>Exporter en CSV</button>
+
       <table>
         <thead>
           <tr>
@@ -98,7 +130,7 @@ export default function Manager() {
           </tr>
         </thead>
         <tbody>
-          {filterCongesByMonth(selectedMonth).map((conge) => (
+          {filteredConges.map((conge) => (
             <tr key={conge.id || Math.random()}>
               <td>{conge.employeId}</td>
               <td>{conge.dateDebut}</td>

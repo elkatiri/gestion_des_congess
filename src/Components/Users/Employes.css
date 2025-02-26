@@ -119,7 +119,10 @@ td {
 
 th {
   background-color: #1f1d18;
-  color: #fff;
+  color: #0f0f0f;
+}
+tr{
+  color: #0f0f0f;
 }
 
 tr:hover {

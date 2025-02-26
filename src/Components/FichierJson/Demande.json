@@ -1,18 +1,82 @@
 [
-    {
-      "id": 101,
-      "employeId": 1,
-      "managerId": 1,
-      "dateDebut": "2025-03-10",
-      "dateFin": "2025-03-15",
-      "statut": "En attente"
-   },
-   {
-    "id": 102,
-    "employeId": 2,
-    "managerId": 2,
+  {
+    "id": 101,
+    "employeId": 1,
+    "managerId": 1,
     "dateDebut": "2025-03-10",
     "dateFin": "2025-03-15",
     "statut": "En attente"
-    }
+  },
+  {
+    "id": 102,
+    "employeId": 2,
+    "managerId": 2,
+    "dateDebut": "2025-04-05",
+    "dateFin": "2025-04-12",
+    "statut": "Approuvé"
+  },
+  {
+    "id": 103,
+    "employeId": 3,
+    "managerId": 1,
+    "dateDebut": "2025-05-20",
+    "dateFin": "2025-05-25",
+    "statut": "Refusé"
+  },
+  {
+    "id": 104,
+    "employeId": 4,
+    "managerId": 3,
+    "dateDebut": "2025-06-15",
+    "dateFin": "2025-06-30",
+    "statut": "Reporté"
+  },
+  {
+    "id": 105,
+    "employeId": 5,
+    "managerId": 2,
+    "dateDebut": "2025-07-10",
+    "dateFin": "2025-07-20",
+    "statut": "En attente"
+  },
+  {
+    "id": 106,
+    "employeId": 6,
+    "managerId": 4,
+    "dateDebut": "2025-08-01",
+    "dateFin": "2025-08-10",
+    "statut": "Approuvé"
+  },
+  {
+    "id": 107,
+    "employeId": 7,
+    "managerId": 3,
+    "dateDebut": "2025-09-05",
+    "dateFin": "2025-09-15",
+    "statut": "En attente"
+  },
+  {
+    "id": 108,
+    "employeId": 8,
+    "managerId": 1,
+    "dateDebut": "2025-10-12",
+    "dateFin": "2025-10-22",
+    "statut": "Refusé"
+  },
+  {
+    "id": 109,
+    "employeId": 9,
+    "managerId": 2,
+    "dateDebut": "2025-11-03",
+    "dateFin": "2025-11-08",
+    "statut": "Reporté"
+  },
+  {
+    "id": 110,
+    "employeId": 10,
+    "managerId": 4,
+    "dateDebut": "2025-12-18",
+    "dateFin": "2025-12-28",
+    "statut": "En attente"
+  }
 ]
